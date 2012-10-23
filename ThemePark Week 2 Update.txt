@@ -1,0 +1,9 @@
+Weekly Update 
+
+Week 2
+
+This week I started work on the website that will be the frontend to my service. I created this through Windows Azure.
+
+http://themeparks.azurewebsites.net/
+
+In the next week I plan to tidy up the web site some more and to add the maps API
