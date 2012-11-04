@@ -11,9 +11,32 @@
     var map = new ovi.mapsapi.map.Display(
         document.getElementById("map"),
         {
+        	components: [ 
+                         //behavior collection
+                         new ovi.mapsapi.map.component.zoom.DoubleClick(),
+                         new ovi.mapsapi.map.component.Behavior(),
+                         new ovi.mapsapi.map.component.ZoomBar(),
+                         new ovi.mapsapi.map.component.Overview(),
+                         new ovi.mapsapi.map.component.TypeSelector()],
+                         	
             'zoomLevel': 4, //zoom level for the map
             'center': [39.05, -99.9] //center coordinates
         }
-    );    </script>
+    ); 
+    var marker = new ovi.mapsapi.map.Marker(
+            new ovi.mapsapi.geo.Coordinate(28.47, -81.47),{
+            title: "marker",
+            visibility: true,
+            icon: "images/coaster.png",
+            //offset the top left icon corner so that it's
+            //centered above the coordinate
+            anchor: new ovi.mapsapi.util.Point(32, 32) 
+        });
+
+    map.objects.add(marker);
+
+    map.set("baseMapType", map.SATELLITE);
+
+    </script>
   </body>
 </html>
