@@ -2,40 +2,34 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Ovi Maps API Example</title>
-    <script src="http://api.maps.ovi.com/jsl.js" type="text/javascript" charset="utf-8"></script>
+    <title>Florida</title>
+    <script src="http://api.maps.nokia.com/2.2.3/jsl.js" type="text/javascript" charset="utf-8"></script>
   </head>
   <body>
     <div id="map" style="width:600px; height:400px;"></div>
     <script type="text/javascript">
-    var map = new ovi.mapsapi.map.Display(
-        document.getElementById("map"),
-        {
-        	components: [ 
-                         //behavior collection
-                         new ovi.mapsapi.map.component.zoom.DoubleClick(),
-                         new ovi.mapsapi.map.component.Behavior(),
-                         new ovi.mapsapi.map.component.ZoomBar(),
-                         new ovi.mapsapi.map.component.Overview(),
-                         new ovi.mapsapi.map.component.TypeSelector()],
-                         	
-            'zoomLevel': 4, //zoom level for the map
-            'center': [39.05, -99.9] //center coordinates
-        }
-    ); 
-    var marker = new ovi.mapsapi.map.Marker(
-            new ovi.mapsapi.geo.Coordinate(28.47, -81.47),{
-            title: "marker",
-            visibility: true,
-            icon: "images/coaster.png",
-            //offset the top left icon corner so that it's
-            //centered above the coordinate
-            anchor: new ovi.mapsapi.util.Point(32, 32) 
-        });
-
-    map.objects.add(marker);
-
-    map.set("baseMapType", map.SATELLITE);
+     
+    nokia.Settings.set("appId", "Yl1QgO38Ph94UavWkR_R");
+    nokia.Settings.set("authenticationToken", "kXGFE6yql8qE5EfX_wJ8aA");
+    
+    var myInfoBubbles = new nokia.maps.map.component.InfoBubbles();
+    var map = new nokia.maps.map.Display(document.getElementById("map"),   // new instance of Nokia Maps
+    {
+     
+        components: [ new nokia.maps.map.component.Behavior(),
+                    new nokia.maps.map.component.ZoomBar(),
+                    new nokia.maps.map.component.Overview(),                             
+                    new nokia.maps.map.component.TypeSelector(),     
+                    new nokia.maps.map.component.ScaleBar(),
+                    myInfoBubbles],
+                    
+        'zoomLevel': 10, 
+        'center':[28.49, -81.37]
+    });
+     
+    var myHTMLcontent = "<div class=\"myHtmlContent\">"+"<iframe width='200' height='150' src='http://www.youtube.com/embed/xfsAnHMR368' frameborder='0' allowfullscreen></iframe>"+"</div>";
+     map.set("baseMapType", map.SATELLITE);
+     myInfoBubbles.addBubble(myHTMLcontent, new nokia.maps.geo.Coordinate(28.47, -81.47))	;
 
     </script>
   </body>
