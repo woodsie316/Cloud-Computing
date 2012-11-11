@@ -6,30 +6,68 @@
     <script src="http://api.maps.nokia.com/2.2.3/jsl.js" type="text/javascript" charset="utf-8"></script>
   </head>
   <body>
-    <div id="map" style="width:600px; height:400px;"></div>
+    <div id="mapContainer" style="width:600px; height:400px;"></div>
     <script type="text/javascript">
      
     nokia.Settings.set("appId", "Yl1QgO38Ph94UavWkR_R");
     nokia.Settings.set("authenticationToken", "kXGFE6yql8qE5EfX_wJ8aA");
     
-    var myInfoBubbles = new nokia.maps.map.component.InfoBubbles();
-    var map = new nokia.maps.map.Display(document.getElementById("map"),   // new instance of Nokia Maps
+    var map = new nokia.maps.map.Display(
+    	    document.getElementById("mapContainer"), {
+    	  
+    	    	components: [ new nokia.maps.map.component.Behavior(),
+    	                      new nokia.maps.map.component.ZoomBar(),
+    	                      new nokia.maps.map.component.Overview(),                             
+    	                      new nokia.maps.map.component.TypeSelector()],     
+    	                      
+    	             
+    	          'zoomLevel': 10, 
+    	          'center':[28.49, -81.37]
+    	    });
+    
+    var infoBubbles = new nokia.maps.map.component.InfoBubbles();
+    map.addComponent( infoBubbles);
+    
+    function addInfoBubble(infoBubbles, marker, html) {
+        marker.html = html;
+     marker.addListener("click" ,  function(evt) {
+                                     infoBubbles.addBubble(evt.target.html, evt.target.coordinate);   
+                                         }, false);
+ }
+    var marker;
+    var markers = new Array();
+    marker =  new nokia.maps.map.Marker(new nokia.maps.geo.Coordinate(28.471624,-81.471283),
     {
-     
-        components: [ new nokia.maps.map.component.Behavior(),
-                    new nokia.maps.map.component.ZoomBar(),
-                    new nokia.maps.map.component.Overview(),                             
-                    new nokia.maps.map.component.TypeSelector(),     
-                    new nokia.maps.map.component.ScaleBar(),
-                    myInfoBubbles],
-                    
-        'zoomLevel': 10, 
-        'center':[28.49, -81.37]
-    });
-     
-    var myHTMLcontent = "<div class=\"myHtmlContent\">"+"<iframe width='200' height='150' src='http://www.youtube.com/embed/xfsAnHMR368' frameborder='0' allowfullscreen></iframe>"+"</div>";
-     map.set("baseMapType", map.SATELLITE);
-     myInfoBubbles.addBubble(myHTMLcontent, new nokia.maps.geo.Coordinate(28.47, -81.47))	;
+    title: "marker",
+    visibility: true,
+    icon: "images/coaster.png",
+    anchor: new nokia.maps.util.Point(32, 32) });
+    addInfoBubble( infoBubbles, marker, "<div><iframe width='200' height='150' src='http://www.youtube.com/embed/9x36IJhBtJY' frameborder='0' allowfullscreen></iframe></div><div >Islands of Adventure<br><a href='http://www.attractionticketsdirect.ie/orlando/universal-orlando%C2%AE-resort' >Tickets</a></div>");
+    markers.push(marker);
+    
+    marker =  new nokia.maps.map.StandardMarker(new nokia.maps.geo.Coordinate(28.479169,-81.467721));
+    addInfoBubble( infoBubbles, marker, "<div><iframe width='200' height='150' src='http://www.youtube.com/embed/ASfQU-ab7Cg' frameborder='0' allowfullscreen></iframe></div><div >Universal Studios<br><a href='http://www.attractionticketsdirect.ie/orlando/universal-orlando%C2%AE-resort' >Tickets</a></div>");
+    markers.push(marker);
+    
+    marker =  new nokia.maps.map.StandardMarker(new nokia.maps.geo.Coordinate(28.460721,-81.465318));
+    addInfoBubble( infoBubbles, marker, "<div><iframe width='200' height='150' src='http://www.youtube.com/embed/56yq_uJGafI' frameborder='0' allowfullscreen></iframe></div><div >Wet'n Wild<br><a href='http://www.attractionticketsdirect.ie/orlando/wet-n-wild%C2%AE-orlando' >Tickets</a></div>");
+    markers.push(marker);
+    
+    marker =  new nokia.maps.map.StandardMarker(new nokia.maps.geo.Coordinate(28.409349,-81.462121));
+    addInfoBubble( infoBubbles, marker, "<div><iframe width='200' height='150' src='http://www.youtube.com/embed/evgR7nLctsA' frameborder='0' allowfullscreen></iframe></div><div >SeaWorld<br><a href='http://www.attractionticketsdirect.ie/orlando/seaworld-parks-entertainment/seaworld%C2%AE-orlando' >Tickets</a></div>");
+    markers.push(marker);
+    
+    marker =  new nokia.maps.map.StandardMarker(new nokia.maps.geo.Coordinate(28.404669,-81.463237));
+    addInfoBubble( infoBubbles, marker, "<div><iframe width='200' height='150' src='http://www.youtube.com/embed/FtoRAeN-1b0' frameborder='0' allowfullscreen></iframe></div><div >Discovery Cove<br><a href='http://www.attractionticketsdirect.ie/discovery-cove/index.htm' >Tickets</a></div>");
+    markers.push(marker);
+    
+    marker =  new nokia.maps.map.StandardMarker(new nokia.maps.geo.Coordinate(28.415097,-81.457164));
+    addInfoBubble( infoBubbles, marker, "<div><iframe width='200' height='150' src='http://www.youtube.com/embed/1HfYq6RpU5k' frameborder='0' allowfullscreen></iframe></div><div >Aquatica<br><a href='http://www.attractionticketsdirect.ie/orlando/seaworld-parks-entertainment/aquatica%E2%84%A2' >Tickets</a></div>");
+    markers.push(marker);
+    
+    map.objects.addAll(markers);
+    
+    
 
     </script>
   </body>
