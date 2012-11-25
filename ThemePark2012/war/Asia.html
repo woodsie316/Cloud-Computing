@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Asia</title>
+    <script src="http://api.maps.nokia.com/2.2.3/jsl.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+  <body>
+    <div id="mapContainer" style="z-index: -1; left:0px; top:0px; width: 100%; height: 100%; position: absolute;"></div>
+    <script type="text/javascript">
+     
+    nokia.Settings.set("appId", "Yl1QgO38Ph94UavWkR_R");
+    nokia.Settings.set("authenticationToken", "kXGFE6yql8qE5EfX_wJ8aA");
+    
+    var map = new nokia.maps.map.Display(
+    	    document.getElementById("mapContainer"), {
+    	  
+    	    	components: [ new nokia.maps.map.component.Behavior(),
+    	                      new nokia.maps.map.component.ZoomBar(),
+    	                      new nokia.maps.map.component.Overview(),                             
+    	                      new nokia.maps.map.component.TypeSelector()],     
+    	                      
+    	             
+    	          'zoomLevel': 3, 
+    	          'center':[25.080293,107.402344]
+    	    });
+    
+    var infoBubbles = new nokia.maps.map.component.InfoBubbles();
+    map.addComponent( infoBubbles);
+    
+    function addInfoBubble(infoBubbles, marker, html) {
+        marker.html = html;
+     marker.addListener("click" ,  function(evt) {
+                                     infoBubbles.addBubble(evt.target.html, evt.target.coordinate);   
+                                         }, false);
+ }
+    var marker;
+    var markers = new Array();
+    marker =  new nokia.maps.map.StandardMarker(new nokia.maps.geo.Coordinate(1.254347,103.823242)),
+    addInfoBubble( infoBubbles, marker, "<div><iframe width='200' height='150' src='http://www.youtube.com/embed/f4F7rZzCmqg' frameborder='0' allowfullscreen></iframe></div><div >Universal Studios<br><a href='http://www.rwsentosa.com/language/en-US/Attractions/UniversalStudiosSingapore/Tickets' >Tickets</a></div>");
+    markers.push(marker);
+    
+    marker =  new nokia.maps.map.StandardMarker(new nokia.maps.geo.Coordinate(37.292574,127.203432));
+    addInfoBubble( infoBubbles, marker, "<div><iframe width='200' height='150' src='http://www.youtube.com/embed/HMpg3zymlPE' frameborder='0' allowfullscreen></iframe></div><div >Everland<br><a href='http://www.everland.com/web/multi/english/everland/main.html' >Tickets</a></div>");
+    markers.push(marker);
+    
+    marker =  new nokia.maps.map.StandardMarker(new nokia.maps.geo.Coordinate(31.09939,121.2148));
+    addInfoBubble( infoBubbles, marker, "<div><iframe width='200' height='150' src='http://www.youtube.com/embed/Ng-MZqpw_5I' frameborder='0' allowfullscreen></iframe></div><div >Happy Valley<br><a href='http://www.travelchinaguide.com/attraction/shanghai/happy-valley.htm' >Tickets</a></div>");
+    markers.push(marker);
+    
+    marker =  new nokia.maps.map.StandardMarker(new nokia.maps.geo.Coordinate(3.071854,101.608956));
+    addInfoBubble( infoBubbles, marker, "<div><iframe width='200' height='150' src='http://www.youtube.com/embed/vMBcmDx8dEsY' frameborder='0' allowfullscreen></iframe></div><div >Sunway Lagoon<br><a href='http://www.sunwaylagoon.com.my/waterpark.asp' >Tickets</a></div>");
+    markers.push(marker);
+    
+    marker =  new nokia.maps.map.StandardMarker(new nokia.maps.geo.Coordinate(35.632385,139.881695));
+    addInfoBubble( infoBubbles, marker, "<div><iframe width='200' height='150' src='http://www.youtube.com/embed/PVw0WdafjxY' frameborder='0' allowfullscreen></iframe></div><div >Disneyland<br><a href='http://www.tokyodisneyresort.co.jp/en/ticket/ticketcenter/index.html' >Tickets</a></div>");
+    markers.push(marker);
+    
+    marker =  new nokia.maps.map.StandardMarker(new nokia.maps.geo.Coordinate(-6.125417,106.84365));
+    addInfoBubble( infoBubbles, marker, "<div><iframe width='200' height='150' src='http://www.youtube.com/embed/JigS9_eC-38' frameborder='0' allowfullscreen></iframe></div><div >Dunia Fantasi<br><a href='http://www.ancol.com/'>Tickets</a></div>");
+    markers.push(marker);
+    
+    marker =  new nokia.maps.map.StandardMarker(new nokia.maps.geo.Coordinate(17.559164,106.52821));
+    addInfoBubble( infoBubbles, marker, "<div><iframe width='200' height='150' src='http://www.youtube.com/embed/adVEjdItUqw' frameborder='0' allowfullscreen></iframe></div><div >Dai Nam<br><a href='http://www.vietnamonline.com/attraction/dai-nam-park.html' >Tickets</a></div>");
+    markers.push(marker);
+    
+    marker =  new nokia.maps.map.StandardMarker(new nokia.maps.geo.Coordinate(13.806034,100.693105));
+    addInfoBubble( infoBubbles, marker, "<div><iframe width='200' height='150' src='http://www.youtube.com/embed/j12G9KtMs-A' frameborder='0' allowfullscreen></iframe></div><div >Siam Park City<br><a href='http://www.siamparkcity.com/' >Tickets</a></div>");
+    markers.push(marker);
+    
+    marker =  new nokia.maps.map.StandardMarker(new nokia.maps.geo.Coordinate(23.615341,120.57994));
+    addInfoBubble( infoBubbles, marker, "<div><iframe width='200' height='150' src='http://www.youtube.com/embed/dAXv3av9sJk' frameborder='0' allowfullscreen></iframe></div><div >Janfusun Fancyworld<br><a href='http://eng.taiwan.net.tw/m1.aspx?sNo=0002115&id=R155' >Tickets</a></div>");
+    markers.push(marker);
+    
+    marker =  new nokia.maps.map.StandardMarker(new nokia.maps.geo.Coordinate(22.24672,114.17409));
+    addInfoBubble( infoBubbles, marker, "<div><iframe width='200' height='150' src='http://www.youtube.com/embed/I8gTaX846vw' frameborder='0' allowfullscreen></iframe></div><div >Ocean Park<br><a href='http://www.oceanpark.com.hk/html/en/home/' >Tickets</a></div>");
+    markers.push(marker);
+    
+    map.objects.addAll(markers);
+    
+    
+
+    </script>
+  </body>
+</html>

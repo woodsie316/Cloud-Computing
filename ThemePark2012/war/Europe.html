@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Europe</title>
+    <script src="http://api.maps.nokia.com/2.2.3/jsl.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+  <body>
+    <div id="mapContainer" style="z-index: -1; left:0px; top:0px; width: 100%; height: 100%; position: absolute;"></div>
+    <script type="text/javascript">
+     
+    nokia.Settings.set("appId", "Yl1QgO38Ph94UavWkR_R");
+    nokia.Settings.set("authenticationToken", "kXGFE6yql8qE5EfX_wJ8aA");
+    
+    var map = new nokia.maps.map.Display(
+    	    document.getElementById("mapContainer"), {
+    	  
+    	    	components: [ new nokia.maps.map.component.Behavior(),
+    	                      new nokia.maps.map.component.ZoomBar(),
+    	                      new nokia.maps.map.component.Overview(),                             
+    	                      new nokia.maps.map.component.TypeSelector()],     
+    	                      
+    	             
+    	          'zoomLevel': 4, 
+    	          'center':[50.034092,15.029297]
+    	    });
+    
+    var infoBubbles = new nokia.maps.map.component.InfoBubbles();
+    map.addComponent( infoBubbles);
+    
+    function addInfoBubble(infoBubbles, marker, html) {
+        marker.html = html;
+     marker.addListener("click" ,  function(evt) {
+                                     infoBubbles.addBubble(evt.target.html, evt.target.coordinate);   
+                                         }, false);
+ }
+    var marker;
+    var markers = new Array();
+    marker =  new nokia.maps.map.StandardMarker(new nokia.maps.geo.Coordinate(55.735395,9.126946)),
+    addInfoBubble( infoBubbles, marker, "<div><iframe width='200' height='150' src='http://www.youtube.com/embed/ZRS_ngw-xj0' frameborder='0' allowfullscreen></iframe></div><div >Legoland<br><a href='http://www.legoland.dk/en/' >Tickets</a></div>");
+    markers.push(marker);
+    
+    marker =  new nokia.maps.map.StandardMarker(new nokia.maps.geo.Coordinate(52.992857,-1.894627));
+    addInfoBubble( infoBubbles, marker, "<div><iframe width='200' height='150' src='http://www.youtube.com/embed/7hBInffmFhA' frameborder='0' allowfullscreen></iframe></div><div >Alton Towers<br><a href='http://www.altontowers.com/tickets/' >Tickets</a></div>");
+    markers.push(marker);
+    
+    marker =  new nokia.maps.map.StandardMarker(new nokia.maps.geo.Coordinate(45.454772,10.713515));
+    addInfoBubble( infoBubbles, marker, "<div><iframe width='200' height='150' src='http://www.youtube.com/embed/Tocf7E0g3Ag' frameborder='0' allowfullscreen></iframe></div><div >Gardaland<br><a href='http://www.gardaland.it/park-en/prices-tickets/individuals/' >Tickets</a></div>");
+    markers.push(marker);
+    
+    marker =  new nokia.maps.map.StandardMarker(new nokia.maps.geo.Coordinate(59.283333,18.016667));
+    addInfoBubble( infoBubbles, marker, "<div><iframe width='200' height='150' src='http://www.youtube.com/embed/ymG00ySosdY' frameborder='0' allowfullscreen></iframe></div><div >Liseberg<br><a href='http://www.liseberg.com/en/home/Amusement-Park/Tickets-prices1/' >Tickets</a></div>");
+    markers.push(marker);
+    
+    marker =  new nokia.maps.map.StandardMarker(new nokia.maps.geo.Coordinate(41.085514,1.131704));
+    addInfoBubble( infoBubbles, marker, "<div><iframe width='200' height='150' src='http://www.youtube.com/embed/vIRuf3E4ExM' frameborder='0' allowfullscreen></iframe></div><div >Port Aventura<br><a href='http://www.attractionticketsdirect.ie/europe/port-aventura-tickets' >Tickets</a></div>");
+    markers.push(marker);
+    
+    marker =  new nokia.maps.map.StandardMarker(new nokia.maps.geo.Coordinate(55.673075,12.568824));
+    addInfoBubble( infoBubbles, marker, "<div><iframe width='200' height='150' src='http://www.youtube.com/embed/JaWZWQcaKQ4' frameborder='0' allowfullscreen></iframe></div><div >Tivoli Gardens<br><a href='http://www.tivoli.dk/en/'>Tickets</a></div>");
+    markers.push(marker);
+    
+    marker =  new nokia.maps.map.StandardMarker(new nokia.maps.geo.Coordinate(51.650204,5.047091));
+    addInfoBubble( infoBubbles, marker, "<div><iframe width='200' height='150' src='http://www.youtube.com/embed/EHjL5kwGkp0' frameborder='0' allowfullscreen></iframe></div><div >Efteling<br><a href='http://www.efteling.co.uk/' >Tickets</a></div>");
+    markers.push(marker);
+    
+    marker =  new nokia.maps.map.StandardMarker(new nokia.maps.geo.Coordinate(48.26606,7.72134));
+    addInfoBubble( infoBubbles, marker, "<div><iframe width='200' height='150' src='http://www.youtube.com/embed/SiJGmdVByag' frameborder='0' allowfullscreen></iframe></div><div >Europa Park<br><a href='http://www.attractiontix.co.uk/europa-park.aspx' >Tickets</a></div>");
+    markers.push(marker);
+    
+    marker =  new nokia.maps.map.StandardMarker(new nokia.maps.geo.Coordinate(48.870397,2.779823));
+    addInfoBubble( infoBubbles, marker, "<div><iframe width='200' height='150' src='http://www.youtube.com/embed/4bFzw5YJLmo' frameborder='0' allowfullscreen></iframe></div><div >Disneyland<br><a href='http://www.attractionticketsdirect.ie/europe/disneyland-paris-tickets' >Tickets</a></div>");
+    markers.push(marker);
+    
+    marker =  new nokia.maps.map.StandardMarker(new nokia.maps.geo.Coordinate(51.404918,-0.512935));
+    addInfoBubble( infoBubbles, marker, "<div><iframe width='200' height='150' src='http://www.youtube.com/embed/jaFr-FxZ92k' frameborder='0' allowfullscreen></iframe></div><div >Thorpe Park<br><a href='http://www.thorpepark.com/prices/tickets.aspx' >Tickets</a></div>");
+    markers.push(marker);
+    
+    map.objects.addAll(markers);
+    
+    
+
+    </script>
+  </body>
+</html>
