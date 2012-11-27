@@ -1,2 +1,3 @@
 # Module themepark2012
 # RPC service class, partial path of RPC policy file
+com.cloud.project.client.GreetingService, 9C7800F3F808397EC0093EAD12867BEE.gwt.rpc
